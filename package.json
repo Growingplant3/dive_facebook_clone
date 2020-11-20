@@ -1,5 +1,8 @@
 {
   "name": "dive_facebook_clone",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap3": "^3.3.5",
+    "jquery": "^3.5.1"
+  }
 }

@@ -1,5 +1,17 @@
 <div style="width: 50rem; margin: 20px;">
   <h1>サインアップ</h1>
+
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= form_with(model: @user, local: true) do |form| %>
     <div class="form-group">
       <%= form.label :name %>

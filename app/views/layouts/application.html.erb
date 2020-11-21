@@ -13,6 +13,13 @@
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
+    <% if logged_in? %>
+      <%= link_to "プロフィール画面へ", user_path(current_user) %>
+      <%= link_to "ログアウトする", session_path(current_user), method: :delete %>
+    <% else %>
+      <%= link_to "サインアップする", new_user_path %>
+      <%= link_to "ログインする", new_session_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

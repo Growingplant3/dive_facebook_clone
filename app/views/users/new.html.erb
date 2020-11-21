@@ -25,12 +25,12 @@
 
     <div class="form-group">
       <%= form.label :password %>
-      <%= form.password_field :password, class: "form-control" %>
+      <%= form.password_field :password, class: "form-control", placeholder: "8文字以上16文字以下かつ半角英数字で入力してください" %>
     </div>
 
     <div>
       <%= form.label :password_confirmation %>
-      <%= form.password_field :password_confirmation, class: "form-control" %>
+      <%= form.password_field :password_confirmation, class: "form-control", placeholder: "確認のため、もう一度パスワードを入力してください" %>
     </div>
 
     <%= form.submit "Create my account" %>

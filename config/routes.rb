@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   resources :users
-  resources :sessions
+  resources :sessions, only: %i[new create destroy]
 end

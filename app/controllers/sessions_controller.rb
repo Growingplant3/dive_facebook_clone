@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      puts "trueルート"
+      session[:user_id] = user.id
+      redirect_to user_path(user)
     else
-      puts "falseルート"
       flash.now[:danger] = "ログインに失敗しました"
       render :new
     end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show]
+  before_action :set_user, only: %i[show destroy]
 
   def new
     @user = User.new
@@ -15,6 +15,12 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @user.destroy
+    flash[:notice] = "アカウントを削除しました。"
+    redirect_to new_user_path
   end
 
   private

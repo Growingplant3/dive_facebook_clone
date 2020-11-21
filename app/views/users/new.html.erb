@@ -3,7 +3,7 @@
 
   <% if @user.errors.any? %>
     <div class="alert alert-danger" role="alert">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "個のエラーがあるため、保存できません。") %></h2>
       <ul>
         <% @user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -33,6 +33,6 @@
       <%= form.password_field :password_confirmation, class: "form-control", placeholder: "確認のため、もう一度パスワードを入力してください" %>
     </div>
 
-    <%= form.submit "Create my account" %>
+    <%= form.submit "アカウントを作成する" %>
   <% end %>
 </div>

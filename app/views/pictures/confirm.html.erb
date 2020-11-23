@@ -1,13 +1,13 @@
 <h1>投稿内容確認中</h1>
 
 <div>
-  <%= form_with(model: @picture, local: true) do |form| %>
+  <%= form_with(model: @picture, local: true, url: pictures_path) do |form| %>
     <table>
       <tr>
         <th>
-          <%= "文章：#{@picture.content}" %>
+          <%= form.hidden_field :content, value: @picture.content %>
+          <%= "本文：#{@picture.content}" %>
         </th>
-        <%= form.hidden_field :content, value: @picture.content %>
       </tr>
       <tr>
         <th>
@@ -16,7 +16,7 @@
       </tr>
       <tr>
         <th>
-          <%= form.submit "新規登録する" %>
+          <%= form.submit "これで確定する" %>
         </th>
       </tr>
       <tr>

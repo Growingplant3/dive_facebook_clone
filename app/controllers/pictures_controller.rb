@@ -8,7 +8,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(picture_params)
+    @picture = current_user.pictures.build(picture_params)
     if @picture.save
       flash[:notice] = "新規登録に成功しました。"
       redirect_to pictures_path
@@ -23,6 +23,6 @@ class PicturesController < ApplicationController
 
   private
   def picture_params
-    params.require(:picture).permit(:content, :image)
+    params.require(:picture).permit(:content, :image, user_attributes: [:id])
   end
 end

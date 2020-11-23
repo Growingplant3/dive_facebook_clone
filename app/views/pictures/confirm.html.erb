@@ -1,2 +1,29 @@
-<h1>Pictures#confirm</h1>
-<p>Find me in app/views/pictures/confirm.html.erb</p>
+<h1>投稿内容確認中</h1>
+
+<div>
+  <%= form_with(model: @picture, local: true) do |form| %>
+    <table>
+      <tr>
+        <th>
+          <%= "文章：#{@picture.content}" %>
+        </th>
+        <%= form.hidden_field :content, value: @picture.content %>
+      </tr>
+      <tr>
+        <th>
+          <p>画像：ここにプレビュー画像を配置</p>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <%= form.submit "新規登録する" %>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <%= form.submit "前のページに戻る", name: "back" %>
+        </th>
+      </tr>
+    </table>
+  <% end %>
+</div>

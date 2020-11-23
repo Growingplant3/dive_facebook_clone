@@ -13,8 +13,7 @@
       <%= "投稿者：#{picture.user.name}" %>
     </p>
     <p>
-      <%= picture.created_at %>
-      <%#= picture.created_at.to_s.slice(0..19) %>
+      <%= "投稿日：#{picture.created_at.to_s.slice(0..18)}" %>
     </p>
   </div>
 <% end %>

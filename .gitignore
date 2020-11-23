@@ -28,3 +28,4 @@
 
 vendor
 public/uploads/tmp
+.DS_Store

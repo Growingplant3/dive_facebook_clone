@@ -1,0 +1,45 @@
+<h1>写真とその時思ったことを投稿してみよう！</h1>
+
+<% if flash.any? %>
+  <% flash.each do |key, value| %>
+    <div>
+      <p>
+        <%= value %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @picture.errors.any? %>
+  <div>
+    <h2><%= @picture.errors.count %>件のエラーがあります。</h2>
+    <ul>
+      <% @picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div>
+  <%= form_with(model: @picture, local: true) do |form| %>
+    <table>
+      <tr>
+        <th>
+          <%= form.label :text %>
+        </th>
+        <td>
+          <%= form.text_field :text %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%= form.label :image %>
+        </th>
+        <td>
+          <%= form.file_field :image %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

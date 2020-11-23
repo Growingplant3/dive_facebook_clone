@@ -1,0 +1,19 @@
+<h1>投稿内容を確認中</h1>
+
+<div>
+  <h4><%= @picture.content %></h4>
+
+  <p>
+    投稿画像
+  </p>
+
+  <p>
+    投稿者：<%= @picture.user.name %>
+  </p>
+
+  <p>
+    投稿日：<%= @picture.created_at.to_s.slice(0..18) %>
+  </p>
+</div>
+
+<%= link_to "一覧表示へ戻る", pictures_path %>

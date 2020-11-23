@@ -4,7 +4,8 @@
   <h4><%= @picture.content %></h4>
 
   <p>
-    投稿画像
+    投稿画像<br>
+    <%= image_tag(@picture.image.url) %>
   </p>
 
   <p>

@@ -11,7 +11,9 @@
       </tr>
       <tr>
         <th>
-          <p>画像：ここにプレビュー画像を配置</p>
+          画像：
+          <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+          <%= form.hidden_field :image_cache %>
         </th>
       </tr>
       <tr>

@@ -1,8 +1,8 @@
 <h1>写真とその時思ったことを投稿してみよう！</h1>
 
 <% if @picture.errors.any? %>
-  <div>
-    <h2><%= @picture.errors.count %>件のエラーがあります。</h2>
+  <div class="alert alert-danger" role="alert">
+    <h2><%= pluralize(@picture.errors.count, "個のエラーがあるため、保存できません。") %></h2>
     <ul>
       <% @picture.errors.full_messages.each do |message| %>
         <li><%= message %></li>

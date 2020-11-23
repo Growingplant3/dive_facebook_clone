@@ -1,3 +1,5 @@
 <h1><%= @user.name %>さんのページ</h1>
 <p>メールアドレス: <%= @user.email %></p>
+<%= link_to "何か投稿してみる", new_picture_path %>
+<br>
 <%= link_to "アカウントを削除する", user_path(@user), method: :delete, data: { confirm: "本当に削除してもよろしいですか？"} %>

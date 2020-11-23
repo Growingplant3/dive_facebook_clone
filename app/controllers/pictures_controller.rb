@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: %i[show edit update]
+  before_action :set_picture, only: %i[show edit update destroy]
 
   def index
     @pictures = Picture.all.order(created_at: "desc")
@@ -34,6 +34,12 @@ class PicturesController < ApplicationController
       flash[:alert] = "編集に失敗しました。"
       render :edit
     end
+  end
+
+  def destroy
+    @picture.destroy
+    flash[:notice] = "投稿を削除しました。"
+    redirect_to pictures_path
   end
 
   def confirm

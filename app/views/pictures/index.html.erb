@@ -2,7 +2,7 @@
 <%= "投稿は全部で#{@pictures.count}個です。" %>
 
 <% @pictures.each do |picture| %>
-  <div>
+  <div class="various-form">
     <h4>
       <%= link_to "#{picture.content}", picture_path(picture) %>
     </h4>

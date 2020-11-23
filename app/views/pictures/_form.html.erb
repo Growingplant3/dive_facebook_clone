@@ -10,7 +10,7 @@
 <% end %>
 
 <div>
-  <%= form_with(model: @picture, local: true) do |form| %>
+  <%= form_with(model: @picture, local: true, url: choose_pictures_path) do |form| %>
     <table>
       <tr>
         <th>
@@ -30,7 +30,12 @@
       </tr>
       <tr>
         <th>
-          <%= form.submit "編集する" %>
+          <% case action_name %>
+          <% when "new","create","confirm" %>
+            <%= form.submit "新規登録する" %>
+          <% when "edit","update" %>
+            <%= form.submit "編集する" %>
+          <% end %>
         </th>
       </tr>
     </table>

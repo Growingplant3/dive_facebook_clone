@@ -11,12 +11,16 @@ class PicturesController < ApplicationController
 
   def create
     @picture = current_user.pictures.build(picture_params)
-    if @picture.save
-      flash[:notice] = "新規登録に成功しました。"
-      redirect_to pictures_path
-    else
-      flash[:alert] = "新規登録に失敗しました。"
+    if params[:back]
       render :new
+    else
+      if @picture.save
+        flash[:notice] = "新規登録に成功しました。"
+        redirect_to pictures_path
+      else
+        flash[:alert] = "新規登録に失敗しました。"
+        render :new
+      end
     end
   end
 

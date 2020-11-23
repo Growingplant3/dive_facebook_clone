@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: %i[show edit]
+  before_action :set_picture, only: %i[show edit update]
 
   def index
     @pictures = Picture.all.order(created_at: "desc")
@@ -24,6 +24,16 @@ class PicturesController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @picture.update(picture_params)
+      flash[:notice] = "編集に成功しました。"
+      redirect_to pictures_path
+    else
+      flash[:alert] = "編集に失敗しました。"
+      render :edit
+    end
   end
 
   def confirm

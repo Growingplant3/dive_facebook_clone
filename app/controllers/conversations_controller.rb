@@ -1,6 +1,4 @@
 class ConversationsController < ApplicationController
-  before_action :set_conversations
-
   def index
     @conversations = Conversation.all
   end
@@ -18,9 +16,5 @@ class ConversationsController < ApplicationController
   private
   def conversation_params
     params.permit(:sender_id, :recipient_id)
-  end
-
-  def set_conversations
-    @conversation = Conversation.find(params[:conversation_id])
   end
 end

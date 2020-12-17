@@ -1,5 +1,21 @@
 <h1><%= @user.name %>さんのページ</h1>
 <p>メールアドレス: <%= @user.email %></p>
+
+<h1><%= "#{@user.following.count}人をフォロー中"%></h1>
+<% @user.following.each do |this_user_following| %>
+  <%= this_user_following.name %>
+  <%= this_user_following.email %>
+  <hr>
+<% end %>
+
+<h1><%= "フォロワーは#{@user.followers.count}人" %></h1>
+<% @user.followers.each do |this_user_follower| %>
+  <%= this_user_follower.name %>
+  <%= this_user_follower.email %>
+  <hr>
+<% end %>
+
+<hr>
 <%= link_to "何か投稿してみる", new_picture_path %>
 <br>
 <%= link_to "アカウントを削除する", user_path(@user), method: :delete, data: { confirm: "本当に削除してもよろしいですか？"} %>

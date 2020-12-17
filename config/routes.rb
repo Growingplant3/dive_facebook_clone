@@ -6,5 +6,8 @@ Rails.application.routes.draw do
     post :confirm, on: :collection
   end
   resources :relationships, only: %i[create destroy]
+  resources :conversations do
+    resources :messages
+  end
   root to: 'sessions#new'
 end

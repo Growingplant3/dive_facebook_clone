@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :set_conversations
+
   def index
     # indexアクションに書かれたこれらの記載は、
     # 一つ一つの部分で何をしているかの理解をわかりやすくするために
@@ -34,5 +36,9 @@ class MessagesController < ApplicationController
   private
   def message_params
     params.require(:message).permit(:body, :user_id)
+  end
+
+  def set_conversations
+    @conversation = Conversation.find(params[:conversation_id])
   end
 end
